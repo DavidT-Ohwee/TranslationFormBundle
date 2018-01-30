@@ -25,7 +25,8 @@
         "symfony/dependency-injection" : "~4.0",
         "symfony/http-kernel" : "~4.0",
         "symfony/config" : "~4.0",
-        "symfony/doctrine-bridge" : "~4.0"
+        "symfony/doctrine-bridge" : "~4.0",
+        "ohwee/auto-form-bundle" : "dev-master"
     },
     "suggest" : {
         "knplabs/doctrine-behaviors" : "For Knp strategy",
