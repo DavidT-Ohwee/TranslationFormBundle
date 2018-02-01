@@ -55,16 +55,16 @@ abstract class TypeTestCase extends BaseTypeTestCase
 
         $config = Setup::createAnnotationMetadataConfiguration([__DIR__ . '/../Fixtures/Entity'], true, null, null, false);
         $entityManager = EntityManager::create(['driver' => 'pdo_sqlite'], $config);
-        $doctrineInfo = new \A2lix\AutoFormBundle\ObjectInfo\DoctrineInfo($entityManager->getMetadataFactory());
+        $doctrineInfo = new \A2lix\TranslationFormBundle\ObjectInfo\DoctrineInfo($entityManager->getMetadataFactory());
 
-        return $this->defaultFormManipulator = new \A2lix\AutoFormBundle\Form\Manipulator\DefaultManipulator($doctrineInfo, ['id', 'locale', 'translatable']);
+        return $this->defaultFormManipulator = new \A2lix\TranslationFormBundle\Form\Manipulator\DefaultManipulator($doctrineInfo, ['id', 'locale', 'translatable']);
     }
 
     protected function getConfiguredAutoFormType()
     {
-        $AutoFormListener = new \A2lix\AutoFormBundle\Form\EventListener\AutoFormListener($this->getDefaultFormManipulator());
+        $AutoFormListener = new \A2lix\TranslationFormBundle\Form\EventListener\AutoFormListener($this->getDefaultFormManipulator());
 
-        return new \A2lix\AutoFormBundle\Form\Type\AutoFormType($AutoFormListener);
+        return new \A2lix\TranslationFormBundle\Form\Type\AutoFormType($AutoFormListener);
     }
 
     protected function getConfiguredTranslationsType($locales, $defaultLocale, $requiredLocales)
