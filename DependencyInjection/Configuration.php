@@ -49,6 +49,16 @@ class Configuration implements ConfigurationInterface
                     ->prototype('scalar')->end()
                 ->end()
                 ->scalarNode('templating')->defaultValue('A2lixTranslationFormBundle::default.html.twig')->end()
+                ->arrayNode('excluded_fields')
+                    ->defaultValue(['id', 'locale', 'translatable'])
+                    ->beforeNormalization()
+                    ->ifString()
+                    ->then(function ($v) {
+                        return preg_split('/\s*,\s*/', $v);
+                    })
+                    ->end()
+                    ->prototype('scalar')->end()
+                ->end()
             ->end()
         ;
 
