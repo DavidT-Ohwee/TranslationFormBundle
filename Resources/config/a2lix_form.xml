@@ -5,30 +5,6 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="a2lix_auto_form.doctrine.metadata_factory" class="Doctrine\Common\Persistence\Mapping\ClassMetadataFactory" public="false">
-            <factory service="doctrine.orm.default_entity_manager" method="getMetadataFactory" />
-        </service>
-
-        <service id="a2lix_auto_form.doctrine_info" class="A2lix\TranslationFormBundle\ObjectInfo\DoctrineInfo" public="false">
-            <argument type="service" id="a2lix_auto_form.doctrine.metadata_factory" />
-        </service>
-        <!-- Form Manipulators -->
-        <service id="a2lix_auto_form.default.manipulator" class="A2lix\TranslationFormBundle\Form\Manipulator\DefaultManipulator" public="false">
-            <argument type="service" id="a2lix_auto_form.doctrine_info" />
-            <argument type="collection"></argument>
-        </service>
-
-        <!-- Form Listeners -->
-        <service id="a2lix_auto_form.default.listener.autoform" class="A2lix\TranslationFormBundle\Form\EventListener\AutoFormListener">
-            <argument type="service" id="a2lix_auto_form.default.manipulator" />
-        </service>
-
-        <!-- Form Types -->
-        <service id="a2lix_auto_form.default.type.autoform" class="A2lix\TranslationFormBundle\Form\Type\AutoFormType">
-            <argument type="service" id="a2lix_auto_form.default.listener.autoform" />
-
-            <tag name="form.type" />
-        </service>
         <!-- Locale -->
         <service id="a2lix_translation_form.default.service.parameter_locale_provider" class="A2lix\TranslationFormBundle\Locale\DefaultProvider">
         </service>

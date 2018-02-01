@@ -25,7 +25,13 @@
         "symfony/dependency-injection" : "~4.0",
         "symfony/http-kernel" : "~4.0",
         "symfony/config" : "~4.0",
-        "symfony/doctrine-bridge" : "~4.0"
+        "symfony/doctrine-bridge" : "~4.0",
+        "ohwee/auto-form-bundle" : "dev-master"
+    },
+    "suggest" : {
+        "knplabs/doctrine-behaviors" : "For Knp strategy",
+        "a2lix/i18n-doctrine-bundle" : "For A2lix strategy",
+        "prezent/doctrine-translatable-bundle" : "For Prezent strategy"
     },
     "autoload" : {
         "psr-4" : {
@@ -39,5 +45,8 @@
         "branch-alias" : {
             "dev-master" : "3.x-dev"
         }
-    }
+    },
+    "repositories": [
+        { "type": "vcs", "url": "https://github.com/DavidT-Ohwee/AutoFormBundle" }
+    ]
 }
